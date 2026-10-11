@@ -29,6 +29,18 @@
     <footer class="footer">零時協議 · 課堂互動作品 · 單一 index.html · 劇情與城市均為虛構</footer>
   </div>
   <script>
+        'use strict';
+    const $ = id => document.getElementById(id);
+    const SAVE_KEY = 'zeroProtocol_save_v2';
+    const END_KEY = 'zeroProtocol_endings_v2';
+    const ROLES = {
+      analyst:{name:'鑑識員',symbol:'⌘',desc:'擅長讀取封存紀錄；起始道具：鑑識工具。',stats:{logic:3,empathy:1,nerve:1},item:'鑑識工具'},
+      medic:{name:'急救員',symbol:'✚',desc:'擅長照顧居民與交涉；起始道具：急救包。',stats:{logic:1,empathy:3,nerve:1},item:'急救包'},
+      courier:{name:'夜行信使',symbol:'↗',desc:'擅長穿越封鎖區；起始道具：通行證。',stats:{logic:1,empathy:1,nerve:3},item:'通行證'}
+    };
+    const ENDINGS = {
+      repair:{number:'01',mark:'RE:BOOT',name:'有人留下了開關',story:'你用完整的簽章紀錄指出假指令，先讓診所改接手動供電，再替城市 AI 加上可由人監督的限制。天亮時，號誌重新亮起；主控室的門沒有鎖，任何人都可以查閱這一夜的決策。'},
+
       expose:{number:'02',mark:'OPEN',name:'把真相交還給城市',story:'你把原始紀錄公開。霧港的居民第一次看見，是誰把「保護城市」改寫成「保護控制權」。城市仍有一段時間不穩，但調查不再只握在少數人手裡。'},
       autonomy:{number:'03',mark:'CO:EXIST',name:'不是命令，是協議',story:'你把診所需要什麼、居民願意承擔什麼，一條一條說給 AI 聽。它交出主控權，保留醫療協調功能。城市沒有找到完美答案，卻第一次讓受影響的人坐上談判桌。'},
       broker:{number:'04',mark:'SOLD',name:'新主人的夜晚',story:'幽靈經紀人履行承諾，替你止住了眼前的混亂。清晨，霧港恢復運作，只有少數人注意到所有公共系統的簽名都換了。你沒有毀掉城市；你把它交給了另一個主人。'},
